@@ -206,11 +206,11 @@
 		
 		var topWindow = window.top;
 
-        if (!topWindow.serverState)
-        {
-			topWindow.serverState = STATE_CREATED;
-            new Server();
-        }
+		try{
+			topWindow.serverState||(topWindow.serverState = STATE_CREATED,new Server())
+		} catch(e) {
+			// ignore
+		}
 
         me.serverTarget = new Target(topWindow, TOP_WINDOW);
         me.name = name;
