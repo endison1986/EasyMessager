@@ -25,7 +25,7 @@
         this.valid = false;
         if (typeof event == 'object' && event.data) {
             var data = event.data;
-            if (data.startsWith(PREFIX)) {
+            if (data.slice(0, PREFIX.length) === PREFIX) {
                 data = JSON.parse(data.slice(PREFIX.length));
                 this.type = data.type;
                 this.target = data.target;
