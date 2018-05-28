@@ -114,10 +114,8 @@
     };
 
     function Server() {
+		Messager.call(this, window.top);
         var me = this;
-        me.parent = Messager;
-        me.parent(window.top);
-        delete me.parent;
 
         me.targets = {};
         // registry request handler
@@ -199,10 +197,8 @@
     };
 
     function Client(name) {
+		Messager.call(this);
         var me = this;
-        me.parent = Messager;
-        me.parent();
-        delete me.parent;
 		
 		var topWindow = window.top;
 
